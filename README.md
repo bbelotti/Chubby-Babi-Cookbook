@@ -1,6 +1,6 @@
-# Il Chubby Babi 📖
+# The Chubby Babi 📖
 
-Welcome to the digital edition of **Il Chubby Babi**, a beautifully formatted LaTeX cookbook template optimized for multi-language management, clean typography, and automated recipe compiling. 
+Welcome to the digital edition of **The Chubby Babi**, a beautifully formatted LaTeX cookbook template optimized for multi-language management, clean typography, and automated recipe compiling. 
 
 Whether you want to browse my personal recipe collection or reuse this structure as a blank canvas for your own culinary notebook, this repository contains everything you need to get started.
 
