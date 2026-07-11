@@ -14,6 +14,8 @@ You can browse my personal recipe collection or reuse this structure as a templa
 ├── list_recipes.bat      # Windows tool to instantly check and audit your recipes
 ├── .gitignore            # Keeps your git tracking clean from LaTeX auxiliary files
 ├── README.md             # The file you're reading right now
+├── push_changes.bat      # Double-click to push changes from local machine to main
+├── pull_changes.bat      # Double-click to pull changes from main to local machine
 └── recipes/              # Subfolders housing individual recipe modules
     ├── starters/
     ├── main_courses/
