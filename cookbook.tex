@@ -1,0 +1,212 @@
+% =============================================
+%  COOKBOOK.TEX
+% =============================================
+
+\documentclass[10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{ragged2e}
+\usepackage{enumitem}
+\usepackage{titlesec}   % small-caps rule headers
+\usepackage{changepage}
+\usepackage{multicol}
+	\raggedcolumns
+\usepackage{hyperref}
+\usepackage[stable,bottom]{footmisc}   % neat footnotes
+\usepackage{xfrac} % neat text fractions
+\usepackage{etoolbox}
+\usepackage{wasysym}
+\usepackage{fancyhdr}
+\usepackage{fnpct} % Automatically separates multiple footnotes with a comma
+\usepackage{l3sys-query} % Search directories inside LaTeX
+
+\RaggedRight
+
+ % =========================
+%  LANGUAGE SWITCH --> Change to "OL" (Oiginal Language) or "EN" (English)
+% ==========================
+\newcommand{\LangMode}{EN} % "OL" o "EN"
+
+% \part{} is used for recipe CATEGORIES (Starters, Main Courses, ...)
+\titleformat{\part}
+  {\centering\normalfont\Large\scshape}
+  {\thepart}{1em}{}
+\titlespacing*{\part}{0pt}{2em}{2em}
+
+% \section{} is used for individual RECIPES
+\titleformat{\section}
+  {\normalfont\large\scshape}
+  {}{0em}{}
+  [\vspace{2pt}\titlerule\vspace{4pt}]
+\titlespacing*{\section}{0pt}{2.2em}{0.6em}
+
+% \subsection*{} is used for "Ingredients" / "Preparation" within a recipe
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries\scshape}
+  {}{0em}{}
+\titlespacing*{\subsection}{0pt}{1.2em}{0.4em}
+
+\hypersetup{
+    pdfauthor   = {Bruno Belotti},
+    pdftitle    = {Il Chubby Babi},
+    colorlinks  = true,
+    linkcolor   = black,
+    urlcolor    = black,
+}
+
+\newbool{showpagenumbers}
+\booltrue{showpagenumbers}   % set to \boolfalse{showpagenumbers} to hide page numbers
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{}                              % clear all header/footer fields
+\fancyhead[L]{\small \scshape Il Chubby Babi}
+\fancyhead[R]{\small \scshape Bruno's recipe book}
+\ifbool{showpagenumbers}{\fancyfoot[C]{\thepage}}{\fancyfoot[C]{}}
+
+% Make sure pages that reset to "plain" style (e.g. after \part) keep the same look
+\fancypagestyle{plain}{%
+	\renewcommand{\headrulewidth}{0pt}
+	\fancyhf{}
+	\fancyhead[L]{\small \scshape \scshape Il Chubby Babi}
+	\fancyhead[R]{\small \scshape Bruno's recipe book}
+	\ifbool{showpagenumbers}{\fancyfoot[C]{\thepage}}{\fancyfoot[C]{}}
+}
+
+\newlength{\AbsoluteWidth}
+\setlength{\AbsoluteWidth}{17cm} % Change this to your desired absolute width
+
+\newenvironment{recipeblock}{% 
+	\par\smallskip\noindent
+	% Center the wider block relative to the physical page
+	\hspace*{\dimexpr0.5\linewidth-0.5\AbsoluteWidth\relax}%
+	\begin{minipage}{\AbsoluteWidth}%
+	\centering
+	}{%
+	\end{minipage}\par\smallskip
+}
+
+% ----------------------------------
+%  \recipe{Name}{Time}{Servings}{Source} -- recipe header
+%  Use this at the top of every recipe file, followed by
+%  \subsection*{Ingredients} / \subsection*{Preparation} blocks.
+% ----------------------------------
+\newcommand{\recipe}[4]{%
+	\setcounter{footnote}{0}
+    \section{#1}
+    \begingroup\itshape\small
+    #2 \quad$ #3 \quad$ #4\par
+    \endgroup
+    \medskip
+}
+\AfterEndEnvironment{multicols}{%
+	\par\vspace{\medskipamount}%
+	\leftskip=0pt 
+	\rightskip=0pt 
+	\parfillskip=0pt plus 1fil
+	\justifying
+}
+
+
+\newenvironment{ingredients}
+  {\begin{itemize}[leftmargin=1.2em,itemsep=2pt,topsep=2pt]}
+  {\end{itemize}}
+  
+\newenvironment{equipment}
+{\begin{itemize}[leftmargin=1.2em,itemsep=2pt,topsep=2pt]}
+	{\end{itemize}}
+
+\newenvironment{preparation}
+  {\begin{enumerate}[leftmargin=1.6em,itemsep=4pt,topsep=2pt]}
+  {\end{enumerate}}
+ 
+ 
+ % Automatically loads all recipes in a given folder that match the current LangMode
+ % #1 = Path to directory (e.g., recipes/starters/)
+ \newcommand{\loadcategory}[1]{%
+ 	\QueryFiles{#1/\LangMode_*.tex}{\input{##1}}%
+ }
+
+
+% ================================
+%  DOCUMENT
+% ================================
+\begin{document}
+
+% --------------------------------
+%  TITLE PAGE
+% --------------------------------
+\begin{titlepage}
+    \centering
+    \vspace*{5cm}
+
+    {\Huge\scshape Il Chubby Babi}\\[0.3em]
+    \rule{0.5\textwidth}{0.4pt}\\[1.5em]
+
+    {\Large Bruno Belotti}\\[0.5em]
+    {\itshape Last edited on \today}
+
+    \vfill
+
+%    \begin{minipage}{0.7\textwidth}
+%        \centering\itshape
+%        The Chubby Babi was born in 2016 in Lausanne, Switzerland, as an empty notebook gifted to me by Simona Scopazzini. 
+%        The first culinary masterpiece recorded on the book was the `Risotto Patrio' by Carlo Emilio Gadda, joined over the years by many more recipes carrying my official seal of approval. 
+%        It is now 2026, and one could easily infer the contents of the notebook by judging solely by the collection of stains that have accumulated on its pages.
+%        Because of this, and after multiple requests from folks with excellent taste, I have decided to digitize the Chubby Babi, now compiled in this practical \LaTeX \ document.  
+%        While I plan to indefinitely add recipes to this cookbook, I hope that you will enjoy its current repertoire. 
+%    \end{minipage}
+
+    \vspace*{3cm}
+\end{titlepage}
+
+% ------------------------------------
+%  TABLE OF CONTENTS
+% ------------------------------------
+\tableofcontents
+\clearpage
+
+% -----------------------------------
+%  RECIPES
+% -----------------------------------
+
+% ====================================
+\newpage \hfill \\
+\par\RaggedRight
+\setlength{\parskip}{0.6em plus 2pt minus 1pt}
+\setlength{\parindent}{0pt}
+\part{\Large Starters}
+\hfill \newpage
+
+\loadcategory{recipes/starters}
+
+% ====================================
+\newpage \hfill \\
+\par\RaggedRight
+\setlength{\parskip}{0.6em plus 2pt minus 1pt}
+\setlength{\parindent}{0pt}
+\part{\Large Main Courses}
+\hfill \newpage
+
+\loadcategory{recipes/main_courses}
+
+%\input{recipes/main_courses/risotto_patrio}
+%\input{recipes/main_courses/pollo_al_cestello}
+%\input{recipes/main_courses/soupe_oignon}
+%\input{recipes/main_courses/piadine}
+%\input{recipes/main_courses/pizza_napoletana}
+
+
+% ======================================
+\newpage \hfill \\
+\par\RaggedRight
+\setlength{\parskip}{0.6em plus 2pt minus 1pt}
+\setlength{\parindent}{0pt}
+\part{\Large Desserts}
+\hfill \newpage
+
+\loadcategory{recipes/desserts}
+%\input{recipes/desserts/bundner_nusstorte.tex}
+%\input{recipes/desserts/jerrys_cheesecake.tex}
+
+\end{document}
