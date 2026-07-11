@@ -1,8 +1,8 @@
 # The Chubby Babi 📖
 
-Welcome to the digital edition of **The Chubby Babi**, a beautifully formatted LaTeX cookbook template optimized for multi-language management, clean typography, and automated recipe compiling. 
+Welcome to the digital edition of **The Chubby Babi**, a LaTeX cookbook that I use to compile PDFs of recipes in english or in their original language. 
 
-Whether you want to browse my personal recipe collection or reuse this structure as a blank canvas for your own culinary notebook, this repository contains everything you need to get started.
+You can browse my personal recipe collection or reuse this structure as a blank canvas for your own culinary notebook, this repository contains everything you need to get started. 
 
 ---
 
@@ -12,6 +12,7 @@ Whether you want to browse my personal recipe collection or reuse this structure
 ├── cookbook.tex          # Main compilation file (Preamble, layout, category definitions)
 ├── list_recipes.bat      # Windows tool to instantly check and audit your recipes
 ├── .gitignore            # Keeps your git tracking clean from LaTeX auxiliary files
+├── README.md             # The file you're reading right now
 └── recipes/              # Subfolders housing individual recipe modules
     ├── starters/
     ├── main_courses/
