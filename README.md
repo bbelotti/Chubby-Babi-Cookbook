@@ -1,8 +1,9 @@
 # The Chubby Babi 📖
 
 Welcome to the digital edition of **The Chubby Babi**, a LaTeX cookbook that I use to compile PDFs of recipes in english or in their original language. 
+When compiled, the main cookbook.tex file automatically finds all the recipes in the specified language ("EN" for English, or "OL" for Other Language, to be changed in the preamble) that exist in the "recipes" subfolders, and creates the full PDF. 
 
-You can browse my personal recipe collection or reuse this structure as a blank canvas for your own culinary notebook, this repository contains everything you need to get started. 
+You can browse my personal recipe collection or reuse this structure as a template for your own culinary notebook, this repository contains everything you need to get started. 
 
 ---
 
@@ -16,4 +17,5 @@ You can browse my personal recipe collection or reuse this structure as a blank 
 └── recipes/              # Subfolders housing individual recipe modules
     ├── starters/
     ├── main_courses/
-    └── desserts/
+    └──  desserts
+    
