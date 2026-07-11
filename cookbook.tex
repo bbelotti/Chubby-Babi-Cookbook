@@ -25,7 +25,7 @@
  % =========================
 %  LANGUAGE SWITCH --> Change to "OL" (Oiginal Language) or "EN" (English)
 % ==========================
-\newcommand{\LangMode}{EN} % "OL" o "EN"
+\newcommand{\LangMode}{OL} % "OL" o "EN"
 
 % \part{} is used for recipe CATEGORIES (Starters, Main Courses, ...)
 \titleformat{\part}
@@ -167,7 +167,7 @@
 \clearpage
 
 % -----------------------------------
-%  RECIPES
+%  RECIPES: load all the subfolders in the "recipes" folder. Update this if you add any folders (like "snacks") or change their names
 % -----------------------------------
 
 % ====================================
@@ -178,7 +178,7 @@
 \part{\Large Starters}
 \hfill \newpage
 
-\loadcategory{recipes/starters}
+\loadcategory{recipes/starters} 
 
 % ====================================
 \newpage \hfill \\
