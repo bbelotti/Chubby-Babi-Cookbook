@@ -6,7 +6,9 @@ It consists of a main LaTeX file `cookbook.tex` which, when compiled, will pull 
 
 This provides an elegant solution to share my recipes with a wider audience of international friends while maintaining the original nature of my cookbook, which currently contains recipes in italian, french, english and german. 
 
-Additionally, its simple design based on the classic LaTeX style may be used as a template by other food and LaTeX enthusiasts out there :) This repository contains everything you need to get started: simply download the folders, then change names/titles/options in the main `cookbook.tex` file, and finally modify the individual recipe files in the subfolders (just make sure to leave the "EN_" or "OL_" prefixes (e.g., `EN_pizza_napoletana`), or else the main file will not find the recipe `.tex` files). 
+I went for a simple design based on the classic LaTeX style. 
+
+Additionally, this may be used as a template by other food and LaTeX enthusiasts out there :) This repository contains everything you need to get started: simply download the folders, then change names/titles/options in the main `cookbook.tex` file, and finally modify the individual recipe files in the subfolders (just make sure to leave the "EN_" or "OL_" prefixes (e.g., `EN_pizza_napoletana`), or else the main file will not find the recipe `.tex` files). 
 
 I added a couple of useful `.bat` scripts to quickly list all the recipes included in the folders and their languages, and to perform GIT push/pulls. These will only work on a Windows machine, but are not necessary for the LaTeX project to work. 
 
