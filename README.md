@@ -1,6 +1,6 @@
 # The Chubby Babi 📖
 
-This is the digital version of my recipe book, **The Chubby Babi**. 
+This is the digital version of my recipe book, **The Chubby Babi**, which I am working on as a side-project (with some help from Google's Gemini AI). 
 
 It consists of a main LaTeX file `cookbook.tex` which, when compiled, will pull all recipes in the specified language (either all English recipes [EN], or all Original Language recipes [OL], to be specified by the user in the `cookbook.tex` preamble) from categorized subfolders. 
 
