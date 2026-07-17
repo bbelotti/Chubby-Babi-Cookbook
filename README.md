@@ -8,7 +8,7 @@ This provides an elegant solution to share my recipes with a wider audience of i
 
 I went for a simple design based on the classic LaTeX style. 
 
-Additionally, this may be used as a template by other food and LaTeX enthusiasts out there :) This repository contains everything you need to get started: simply download the folders, then change names/titles/options in the main `cookbook.tex` file, and finally modify the individual recipe files in the subfolders (just make sure to leave the "EN_" or "OL_" prefixes (e.g., `EN_pizza_napoletana`), or else the main file will not find the recipe `.tex` files). 
+Additionally, this may be used as a template by other food and LaTeX enthusiasts out there :) This repository contains everything you need to get started: simply download the folders, then change names/titles/options in the main `cookbook.tex` file, and finally use the individual recipe files in the subfolders as templates to write your recipes (just make sure to leave the "EN_" or "OL_" prefixes [e.g., `EN_pizza_napoletana`], or else the main file will not find the recipe's `.tex` files. Also, if you are using the multi-language capability, in case you have a recipe which original language is in EN, make sure to also add a copy with the `OL_` prefix, or else it will be missing in the OL compilation).  
 
 I added a couple of useful `.bat` scripts to quickly list all the recipes included in the folders and their languages, and to perform GIT push/pulls. These will only work on a Windows machine, but are not necessary for the LaTeX project to work. 
 
