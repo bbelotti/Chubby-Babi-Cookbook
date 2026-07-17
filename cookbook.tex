@@ -95,11 +95,11 @@
 % ----------------------------------
 \newcommand{\recipe}[4]{%
 	\setcounter{footnote}{0}
-    \section{#1}
-    \begingroup\itshape\small
-    #2 \quad$ #3 \quad$ #4\par
-    \endgroup
-    \medskip
+	\section[#1]{\hyperlink{mytoc}{#1}}
+	\begingroup\itshape\small
+	#2 \quad$ #3 \quad$ #4\par
+	\endgroup
+	\medskip
 }
 \AfterEndEnvironment{multicols}{%
 	\par\vspace{\medskipamount}%
@@ -168,6 +168,7 @@
 % ------------------------------------
 %  TABLE OF CONTENTS
 % ------------------------------------
+\hypertarget{mytoc}{}
 \tableofcontents
 \clearpage
 
