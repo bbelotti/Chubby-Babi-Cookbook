@@ -19,10 +19,11 @@ I added a couple of useful `.bat` scripts to quickly list all the recipes includ
 ```text
 ├── cookbook.tex          # Main compilation file (Preamble, layout, category definitions)
 ├── list_recipes.bat      # Windows tool to instantly check and audit your recipes
-├── .gitignore            # Keeps your git tracking clean from LaTeX auxiliary files
+├── .gitignore            # Keeps git tracking clean from LaTeX auxiliary files
 ├── README.md             # The file you're reading right now
 ├── push_changes.bat      # Double-click to push changes from local machine to main
 ├── pull_changes.bat      # Double-click to pull changes from main to local machine
+├── fonts                 # Fonts for special chaacters
 └── recipes/              # Subfolders housing individual recipe modules
     ├── starters/
     ├── main_courses/
