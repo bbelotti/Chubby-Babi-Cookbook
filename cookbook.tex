@@ -2,6 +2,8 @@
 %  COOKBOOK.TEX
 % =============================================
 
+% !TEX program = xelatex
+
 \documentclass[10pt]{article}
 
 \usepackage[T1]{fontenc}
@@ -21,12 +23,13 @@
 \usepackage{l3sys-query} % Search directories inside LaTeX
 \usepackage{xparse} 
 \usepackage{xstring}
+\usepackage{titletoc}
 
 \RaggedRight
 
  % ======================================================================
 %  LANGUAGE SWITCH --> Change to "OL" (Oiginal Language) or "EN" (English)
-\newcommand{\LangMode}{OL} % "OL" o "EN" 
+\newcommand{\LangMode}{EN} % "OL" o "EN" 
 % =======================================================================
 
 % \part{} is used for recipe CATEGORIES (Starters, Main Courses, ...)
@@ -125,13 +128,21 @@
 
 
 
- % Automatically loads all recipes in a given folder that match the current LangMode
+% Automatically loads all recipes in a given folder that match the current LangMode
 % #1 = Path to directory (e.g., recipes/starters/)
 \newcommand{\loadcategory}[1]{%
 	\QueryFiles{#1/\LangMode_*.tex}{\input{##1}}%
 }
 
+\titlecontents{part}
+[0em]{\vspace{1.2em}\scshape\large}
+{}{}
+{}
 
+\titlecontents{section}
+[1em]{\vspace{0.3em}\normalfont\normalsize}
+{}{}
+{\titlerule*[0.5pc]{.}\thecontentspage}
 
 % ================================
 %  DOCUMENT
@@ -169,7 +180,10 @@
 %  TABLE OF CONTENTS
 % ------------------------------------
 \hypertarget{mytoc}{}
-\tableofcontents
+\begin{multicols}{2}
+	\small
+	\tableofcontents
+\end{multicols}
 \clearpage
 
 % -----------------------------------
