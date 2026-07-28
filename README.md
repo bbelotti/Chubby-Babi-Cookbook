@@ -27,5 +27,6 @@ I added a couple of useful `.bat` scripts to quickly list all the recipes includ
 └── recipes/              # Subfolders housing individual recipe modules
     ├── starters/
     ├── main_courses/
-    └──  desserts
+    ├── desserts/
+    └── list_recipes.bat  # Double-click to show a list of all your recipes and quickly find missing EN or OL versions
     
