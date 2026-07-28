@@ -12,6 +12,8 @@ Additionally, this may be used as a template by other food and LaTeX enthusiasts
 
 I added a couple of useful `.bat` scripts to quickly list all the recipes included in the folders and their languages, and to perform GIT push/pulls. These will only work on a Windows machine, but are not necessary for the LaTeX project to work.  
 
+The automations within the LaTeX document are made for Windows, and will most likely not work on Mac :(
+
 ---
 
 ## 🛠️ Project Structure
