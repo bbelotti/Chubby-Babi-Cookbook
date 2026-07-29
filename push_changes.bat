@@ -2,7 +2,7 @@
 cd /d "%~dp0"
 
 echo ====================================================
-echo          THE CHUBBY BABI - PULLING CHANGES          
+echo          THE CHUBBY BABI - PUSHING CHANGES          
 echo ====================================================
 echo .
 echo Checking for empty folders...
