@@ -32,7 +32,7 @@
 
  % ======================================================================
 %  LANGUAGE SWITCH --> Change to "OL" (Oiginal Language) or "EN" (English)
-\newcommand{\LangMode}{EN} % "OL" o "EN" 
+\newcommand{\LangMode}{OL} % "OL" o "EN" 
 % =======================================================================
 
 % \part{} is used for recipe CATEGORIES (Starters, Main Courses, ...)
@@ -118,18 +118,21 @@
 \setcounter{secnumdepth}{0} % Remove all section #s. 
 
 \newenvironment{ingredients}
-  {\begin{itemize}[leftmargin=1.2em,itemsep=2pt,topsep=2pt]}
-  {\end{itemize}}
-  
+{\begin{itemize}[leftmargin=1.2em,itemsep=1.5pt,topsep=1pt,parsep=0pt,partopsep=0pt]}
+	{\end{itemize}}
+
 \newenvironment{equipment}
-{\begin{itemize}[leftmargin=1.2em,itemsep=2pt,topsep=2pt]}
+{\begin{itemize}[leftmargin=1.2em,itemsep=1.5pt,topsep=1pt,parsep=0pt,partopsep=0pt]}
 	{\end{itemize}}
 
 \newenvironment{preparation}
-  {\begin{enumerate}[leftmargin=1.6em,itemsep=4pt,topsep=2pt]}
-  {\end{enumerate}}
+{\begin{enumerate}[leftmargin=1.6em,itemsep=3pt,topsep=1pt,parsep=0pt,partopsep=0pt]}
+	{\end{enumerate}}
 
-
+\titleformat{\subsubsection}
+{\normalfont\normalsize\itshape}
+{}{0em}{}
+\titlespacing*{\subsubsection}{0pt}{0.8em}{0.0em}
 
 % Automatically loads all recipes in a given folder that match the current LangMode
 % #1 = Path to directory (e.g., recipes/starters/)
