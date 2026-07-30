@@ -38,7 +38,7 @@
 % \part{} is used for recipe CATEGORIES (Starters, Main Courses, ...)
 \titleformat{\part}
   {\centering\normalfont\Large\scshape}
-  {\thepart}{1em}{}
+  {}{1em}{}
 \titlespacing*{\part}{0pt}{2em}{2em}
 
 % \section{} is used for individual RECIPES
@@ -140,6 +140,8 @@
 	\QueryFiles{#1/\LangMode_*.tex}{\input{##1}}%
 }
 
+\contentsmargin{0pt}
+
 \titlecontents{part}
 [0em]{\vspace{1.2em}\scshape\large}
 {}{}
@@ -186,10 +188,13 @@
 %  TABLE OF CONTENTS
 % ------------------------------------
 \hypertarget{mytoc}{}
+\begingroup
+\setlength{\columnsep}{35pt} % <--- Increase separation between columns
 \begin{multicols}{2}
 	\small
 	\tableofcontents
 \end{multicols}
+\endgroup
 \clearpage
 
 % -----------------------------------
@@ -201,7 +206,7 @@
 \par\RaggedRight
 \setlength{\parskip}{0.6em plus 2pt minus 1pt}
 \setlength{\parindent}{0pt}
-\part{\Large Starters}
+\part*{\Large Starters}
 \hfill \newpage
 
 \loadcategory{recipes/starters} % <-- update
@@ -211,7 +216,7 @@
 \par\RaggedRight
 \setlength{\parskip}{0.6em plus 2pt minus 1pt}
 \setlength{\parindent}{0pt}
-\part{\Large Mains \& components}
+\part*{\Large Mains \& components}
 \hfill \newpage
 
 \loadcategory{recipes/mains_and_components} % <-- update
@@ -221,7 +226,7 @@
 \par\RaggedRight
 \setlength{\parskip}{0.6em plus 2pt minus 1pt}
 \setlength{\parindent}{0pt}
-\part{\Large Sweets}
+\part*{\Large Sweets}
 \hfill \newpage
 
 \loadcategory{recipes/sweets} % <-- update
