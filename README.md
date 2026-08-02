@@ -27,8 +27,8 @@ The automations within this LaTeX document are made for Windows. Chances are tha
 ├── pull_changes.bat      # Double-click to pull changes from main to local machine
 ├── fonts                 # Fonts for special chaacters
 └── recipes/              # Subfolders housing individual recipe modules
-    ├── starters/
     ├── main_courses/
-    ├── desserts/
+    ├── sauces_and_custards/
+    ├── sweets/
     └── list_recipes.bat  # Double-click to show a list of all your recipes and quickly find missing EN or OL versions
     
