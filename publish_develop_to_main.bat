@@ -6,9 +6,10 @@ echo     THE CHUBBY BABI - PUBLISH develop TO main
 echo ====================================================
 echo.
 echo This will:
-echo   1. Merge develop into main
-echo   2. Push main to GitHub
-echo   3. Sync develop back up to match main
+echo   1. Update local develop from GitHub
+echo   2. Merge develop into main
+echo   3. Push main to GitHub
+echo   4. Sync develop back up to match main
 echo.
 set /p confirm="Continue? (y/n): "
 if /i not "%confirm%"=="y" (
@@ -16,6 +17,11 @@ if /i not "%confirm%"=="y" (
     pause
     exit /b
 )
+
+echo.
+echo Making sure local develop is up to date...
+git checkout develop
+git pull origin develop
 
 echo.
 echo Checking for empty folders...

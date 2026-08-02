@@ -8,7 +8,7 @@ This provides an elegant solution to share my recipes with a wider audience of i
 
 I went for a simple design inspired from the classic $\LaTeX$ style. 
 
-Find a few disclaimers further down. 
+Find a few disclaimers further down.
 
 ---
 
