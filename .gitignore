@@ -9,4 +9,7 @@
 *.bbl
 *.blg
 
+# Folders
+altre_ricette/
+
 # *.pdf
