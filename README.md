@@ -10,7 +10,7 @@ I went for a simple design based on the classic $\LaTeX$ style.
 
 This may be used as a template by other food and $\LaTeX$ enthusiasts out there :) This repository is fully self-contained: simply download the zipped folder, extract it, open the main `cookbook.tex` file with your favorite Tex editor, then change titles/options as desired, and finally use the individual recipe files in the subfolders as templates to write your own recipes.
 
-## MULTILANGUAGE CAPABILITIES: 
+### Multi-language capabilities
 When compiled, the `main.tex` file will iteratively populate the notebook with the recipes in the selected `\LangMode`.Make sure to leave the "EN_" or "OL_" prefixes [e.g., `EN_pizza_napoletana`] to any new recipe you add, or else the main file will not find the associated recipe's `.tex` files. If you do not wish to use the multi-language capability, simply leave the `\newcommand{\LangMode}{}` on either `EN` or `OL`, and ignore all recipes with the other prefix (or delete them, if you want cleaner recipe folders). Instead, if you are using the multi-language capability, in case you have a recipe which original language is in EN, make sure to also add a copy with the `OL_` prefix (or else it will be missing in the OL compilation).
 
 I added a couple of useful `.bat` scripts to quickly list all the recipes included in the folders and their languages, and to perform GIT push/pulls. These will only work on a Windows machine, but are not necessary for the LaTeX project to work.  
@@ -19,7 +19,7 @@ The automations within this LaTeX document are made for Windows. Chances are tha
 
 ---
 
-## 🛠️ Project Structure
+### 🛠️ Project Structure
 
 ```text
 ├── cookbook.tex          # Main compilation file (Preamble, layout, category definitions)
