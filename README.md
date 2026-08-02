@@ -1,14 +1,17 @@
 # The Chubby Babi 📖
 
-This is the digital version of my recipe book, **The Chubby Babi**: an everlasting effort to maintain and pass down my favorite recipes. 
+This is the digital version of my recipe book, **The Chubby Babi**: an everlasting effort to maintain and pass down my favorite recipes, and an easy-to-use $\LaTeX$ template. 
 
-It consists of a main LaTeX file `cookbook.tex` which, when compiled, will pull all recipes in the specified language (either all English recipes [EN], or all Original Language recipes [OL], to be specified by the user in the `cookbook.tex` preamble) from categorized subfolders. 
+It consists of a main $\LaTeX$ file `cookbook.tex` which, when compiled, will pull all recipes in the specified language (either all English recipes [EN], or all Original Language recipes [OL], to be specified by the user in the `cookbook.tex` preamble) from categorized subfolders. 
 
 This provides an elegant solution to share my recipes with a wider audience of international friends while maintaining the original nature of my cookbook, which currently contains recipes in italian, french, english and german. 
 
-I went for a simple design based on the classic LaTeX style. 
+I went for a simple design based on the classic $\LaTeX$ style. 
 
-Additionally, this may be used as a template by other food and LaTeX enthusiasts out there :) This repository contains everything you need to get started: simply download the folders, then change names/titles/options in the main `cookbook.tex` file, and finally use the individual recipe files in the subfolders as templates to write your recipes (just make sure to leave the "EN_" or "OL_" prefixes [e.g., `EN_pizza_napoletana`], or else the main file will not find the recipe's `.tex` files. Also, if you are using the multi-language capability, in case you have a recipe which original language is in EN, make sure to also add a copy with the `OL_` prefix, or else it will be missing in the OL compilation).  
+This may be used as a template by other food and $\LaTeX$ enthusiasts out there :) This repository is fully self-contained: simply download the zipped folder, extract it, open the main `cookbook.tex` file with your favorite Tex editor, then change titles/options as desired, and finally use the individual recipe files in the subfolders as templates to write your own recipes.
+
+## MULTILANGUAGE CAPABILITIES: 
+When compiled, the `main.tex` file will iteratively populate the notebook with the recipes in the selected `\LangMode`.Make sure to leave the "EN_" or "OL_" prefixes [e.g., `EN_pizza_napoletana`] to any new recipe you add, or else the main file will not find the associated recipe's `.tex` files. If you do not wish to use the multi-language capability, simply leave the `\newcommand{\LangMode}{}` on either `EN` or `OL`, and ignore all recipes with the other prefix (or delete them, if you want cleaner recipe folders). Instead, if you are using the multi-language capability, in case you have a recipe which original language is in EN, make sure to also add a copy with the `OL_` prefix (or else it will be missing in the OL compilation).
 
 I added a couple of useful `.bat` scripts to quickly list all the recipes included in the folders and their languages, and to perform GIT push/pulls. These will only work on a Windows machine, but are not necessary for the LaTeX project to work.  
 
@@ -25,7 +28,7 @@ The automations within this LaTeX document are made for Windows. Chances are tha
 ├── README.md             # The file you're reading right now
 ├── push_changes.bat      # Double-click to push changes from local machine to main
 ├── pull_changes.bat      # Double-click to pull changes from main to local machine
-├── fonts                 # Fonts for special chaacters
+├── fonts                 # Fonts for special characters
 └── recipes/              # Subfolders housing individual recipe modules
     ├── main_courses/
     ├── sauces_and_custards/
