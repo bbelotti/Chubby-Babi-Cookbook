@@ -38,16 +38,16 @@ git commit -m "Auto-add .gitkeep to empty folders"
 
 echo.
 echo Syncing local develop with remote...
-git pull origin develop
+git pull origin develop --no-edit
 
 echo.
 echo Switching to main and pulling latest...
 git checkout main
-git pull origin main
+git pull origin main --no-edit
 
 echo.
 echo Merging develop into main...
-git merge develop
+git merge develop --no-edit
 if errorlevel 1 (
     echo.
     echo Merge conflict or error detected! Resolve conflicts manually, then
@@ -63,7 +63,7 @@ git push origin main
 echo.
 echo Switching back to develop and syncing with main...
 git checkout develop
-git merge main
+git merge main --no-edit
 git push origin develop
 
 echo.
