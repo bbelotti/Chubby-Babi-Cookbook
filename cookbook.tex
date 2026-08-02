@@ -1,5 +1,19 @@
 % =============================================
-%  COOKBOOK.TEX
+% COOKBOOK.TEX
+% Made by Bruno Belotti. 
+% 
+% Parts of this code and files in the repo werecreated with some AI help.
+% 
+% 
+% To use the template, the only change you should have to do in this
+% cookbook.tex file is specifying "OL" or "EN" in \newcommand{\LangMode}{}
+% on line 49. 
+% All other changes are done directly in your recipe folders: You can 
+% change Change the titles of the folders containing the individual .tex 
+% recipes, you can add more folders (e.g., "Starters"), or delete folders. 
+% The code will automatically update these changes with each compilation 
+% directly into the final "cookbook.pdf". (Do not use special chaacters!)
+% 
 % =============================================
 
 % !TEX program = xelatex
@@ -32,7 +46,7 @@
 
  % ======================================================================
 %  LANGUAGE SWITCH --> Change to "OL" (Oiginal Language) or "EN" (English)
-\newcommand{\LangMode}{EN} % "OL" o "EN" 
+\newcommand{\LangMode}{EN} % "OL" or "EN" 
 % =======================================================================
 
 % \part{} is used for recipe CATEGORIES (Starters, Main Courses, ...)
@@ -153,15 +167,8 @@
 {\titlerule*[0.5pc]{.}\thecontentspage}
 
 
-% ----------------------------------
-%  Turn a folder name like "mains_and_components" into "Mains & components"
-% ----------------------------------
-\newcommand{\CapitalizeFirst}[1]{%
-	\StrLeft{#1}{1}[\firstletterCB]%
-	\StrGobbleLeft{#1}{1}[\restlettersCB]%
-	\MakeUppercase{\firstletterCB}\restlettersCB%
-}
-
+% Convert a recipes/ subfolder name into a \part title.
+% Also replaces " and " with " \& " and stores the result globally in \CategoryTitle.
 \newcommand{\FormatCategoryTitle}[1]{%
 	\StrSubstitute{#1}{ and }{ \& }[\catnameB]%
 	\xdef\CategoryTitle{\catnameB}%
@@ -224,11 +231,9 @@
 \clearpage
 
 
-%% -----------------------------------
-%%  RECIPES: auto-generate a \part for every subfolder of ./recipes/
-%%  (alphabetical order), and load its recipe files.
-%%  Rename, add, or delete a folder there and this updates on the next compile.
-%% -----------------------------------
+% Auto-generate a \part for every subfolder of ./recipes/ (alphabetical
+% order): derive its title from the folder name, then load its recipes.
+% Add, rename, or delete a folder there and this updates on next compile.
 \QueryFiles[type=d,sort=name]{recipes/*}{%
 	\StrBehind{#1}{recipes/}[\categoryfolder]%
 	\FormatCategoryTitle{\categoryfolder}%
