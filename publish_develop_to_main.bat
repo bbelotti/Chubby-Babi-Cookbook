@@ -1,0 +1,61 @@
+@echo off
+cd /d "%~dp0"
+
+echo ====================================================
+echo     THE CHUBBY BABI - PUBLISH develop TO main
+echo ====================================================
+echo.
+echo This will:
+echo   1. Merge develop into main
+echo   2. Push main to GitHub
+echo   3. Sync develop back up to match main
+echo.
+set /p confirm="Continue? (y/n): "
+if /i not "%confirm%"=="y" (
+    echo Cancelled.
+    pause
+    exit /b
+)
+
+echo.
+echo Checking for empty folders...
+:: This finds empty folders and creates a .gitkeep file in them to make sure empty folders are also pushed
+for /f "delims=" %%i in ('dir /ad /b /s ^| sort /r') do (
+    dir /a /b "%%i" | findstr . >nul || (
+        echo Keeping empty folder: %%~nxi
+        echo. > "%%i\.gitkeep"
+        attrib +h "%%i\.gitkeep"
+    )
+)
+
+echo.
+echo Switching to main and pulling latest...
+git checkout main
+git pull origin main
+
+echo.
+echo Merging develop into main...
+git merge develop
+if errorlevel 1 (
+    echo.
+    echo Merge conflict or error detected! Resolve conflicts manually, then
+    echo re-run this script, or commit and push manually once resolved.
+    pause
+    exit /b
+)
+
+echo.
+echo Pushing main to GitHub...
+git push origin main
+
+echo.
+echo Switching back to develop and syncing with main...
+git checkout develop
+git merge main
+git push origin develop
+
+echo.
+echo ====================================================
+echo Done! main and develop are now in sync.
+echo ====================================================
+pause

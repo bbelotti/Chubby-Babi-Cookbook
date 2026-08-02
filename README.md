@@ -15,7 +15,7 @@ Find a few disclaimers further down.
 ### Using this as a template
 This repository may be used as a template by other food and $\LaTeX$ enthusiasts out there :) 
 
-The repo is fully self-contained: simply download the zipped folder using the green `<> Code` button on the top-right of this github repo and extract it somewhere on your computer, then:
+The repo is fully self-contained: simply download the zipped folder using the green `<> Code` button on the top-right of this github repo and extract it somewhere on your computer, then:  
 
 1. **On your computer, in the `recipes/` subfolder:** rename, delete, or add to the existing recipe category folders to fit your own categories — this is where `cookbook.tex` will automatically pull category names from.
 1. **On your computer, inside each category folder:** add your own recipes as `EN_*.tex` or `OL_*.tex` files, following the same `\recipe{}` / `ingredients` / `preparation` structure as the examples provided. Keep the `EN_` or `OL_` prefix on every recipe file (e.g. `EN_pizza_napoletana.tex`) — `cookbook.tex` uses this prefix to find and load the correct recipes.
@@ -41,10 +41,10 @@ The automations within this LaTeX document are made for Windows. If you try to c
 ├── list_recipes.bat      # Windows tool to instantly check and audit your recipes
 ├── .gitignore            # Keeps git tracking clean from LaTeX auxiliary files
 ├── README.md             # The file you're reading right now
-├── push_changes.bat      # Double-click to push changes from local machine to main
-├── pull_changes.bat      # Double-click to pull changes from main to local machine
+├── push_changes.bat      # Double-click to push changes from local machine to current branch
+├── pull_changes.bat      # Double-click to pull changes from current branch to local machine
 ├── fonts                 # Fonts for special characters
-└── recipes/              # Subfolders housing individual recipe modules
+└── recipes/              # Subfolders housing individual recipe modules (you can change these!)
     ├── main_courses/
     ├── sauces_and_custards/
     ├── sweets/
