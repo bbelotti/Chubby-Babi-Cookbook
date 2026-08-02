@@ -1,4 +1,4 @@
-# The Chubby Babi 📖
+# The Chubby Babi 📖 !commit test!
 
 This is the digital version of my recipe book, **The Chubby Babi**: an everlasting effort to maintain and pass down my favorite recipes, and an easy-to-use $\LaTeX$ cookbook template. 
 
@@ -8,7 +8,7 @@ This provides an elegant solution to share my recipes with a wider audience of i
 
 I went for a simple design inspired from the classic $\LaTeX$ style. 
 
-Find a few disclaimers further down. 
+Find a few disclaimers further down.
 
 ---
 

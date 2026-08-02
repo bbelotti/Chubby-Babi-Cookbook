@@ -41,6 +41,15 @@ echo Syncing local develop with remote...
 git pull origin develop --no-edit
 
 echo.
+echo Committing any pending changes or new .gitkeep files to develop...
+git add .
+git commit -m "Auto-add .gitkeep to empty folders"
+
+echo.
+echo Syncing local develop with remote...
+git pull origin develop --no-edit
+
+echo.
 echo Switching to main and pulling latest...
 git checkout main
 git pull origin main --no-edit
