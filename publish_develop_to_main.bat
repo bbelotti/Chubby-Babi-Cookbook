@@ -2,7 +2,7 @@
 cd /d "%~dp0"
 
 echo ====================================================
-echo     THE CHUBBY BABI - PUBLISH develop TO main
+echo     THE CHUBBY BABI - PUBLISH develop TO main 
 echo ====================================================
 echo.
 echo This will:
