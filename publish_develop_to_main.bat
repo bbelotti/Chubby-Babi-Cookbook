@@ -12,12 +12,16 @@ echo   3. Push main to GitHub
 echo   4. Sync develop back up to match main
 echo.
 
+REM Fetch the current active branch name before running any conditional blocks
+set "CURRENT_BRANCH=unknown"
+for /f "delims=" %%b in ('git rev-parse --abbrev-ref HEAD') do set "CURRENT_BRANCH=%%b"
+
 echo Checking for uncommitted changes...
 git status --porcelain | findstr . >nul
 if not errorlevel 1 (
     echo.
-    echo WARNING: You have uncommitted changes. Commit them first
-    echo using push_changes.bat before publishing to main.
+    echo WARNING: You have uncommitted changes in branch [ %CURRENT_BRANCH% ].
+    echo Commit them first using push_changes.bat before publishing to main.
     pause
     exit /b
 )
@@ -78,7 +82,7 @@ if errorlevel 1 (
 
 echo.
 echo Checking for empty folders...
-:: This finds empty folders and creates a .gitkeep file in them to make sure empty folders are also pushed
+REM This finds empty folders and creates a .gitkeep file in them to make sure empty folders are also pushed
 for /f "delims=" %%i in ('dir /ad /b /s ^| sort /r') do (
     dir /a /b "%%i" | findstr . >nul || (
         echo Keeping empty folder: %%~nxi
