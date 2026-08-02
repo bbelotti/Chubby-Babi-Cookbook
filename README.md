@@ -41,10 +41,10 @@ The automations within this LaTeX document are made for Windows. If you try to c
 ├── list_recipes.bat      # Windows tool to instantly check and audit your recipes
 ├── .gitignore            # Keeps git tracking clean from LaTeX auxiliary files
 ├── README.md             # The file you're reading right now
-├── push_changes.bat      # Double-click to push changes from local machine to main
-├── pull_changes.bat      # Double-click to pull changes from main to local machine
+├── push_changes.bat      # Double-click to push changes from local machine to current branch
+├── pull_changes.bat      # Double-click to pull changes from current branch to local machine
 ├── fonts                 # Fonts for special characters
-└── recipes/              # Subfolders housing individual recipe modules
+└── recipes/              # Subfolders housing individual recipe modules (you can change these!)
     ├── main_courses/
     ├── sauces_and_custards/
     ├── sweets/
