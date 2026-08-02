@@ -31,6 +31,15 @@ for /f "delims=" %%i in ('dir /ad /b /s ^| sort /r') do (
     )
 )
 
+echo Committing any new .gitkeep files...
+git add .
+git commit -m "Auto-add .gitkeep to empty folders"
+
+echo.
+echo Syncing local develop with remote...
+git checkout develop
+git pull origin develop
+
 echo.
 echo Committing any pending changes or new .gitkeep files to develop...
 git add .
