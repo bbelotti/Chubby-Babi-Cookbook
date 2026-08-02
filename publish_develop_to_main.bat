@@ -18,8 +18,11 @@ if /i not "%confirm%"=="y" (
 )
 
 echo.
+echo Checking out develop branch first...
+git checkout develop
+
+echo.
 echo Checking for empty folders...
-:: This finds empty folders and creates a .gitkeep file in them to make sure empty folders are also pushed
 for /f "delims=" %%i in ('dir /ad /b /s ^| sort /r') do (
     dir /a /b "%%i" | findstr . >nul || (
         echo Keeping empty folder: %%~nxi
@@ -28,27 +31,26 @@ for /f "delims=" %%i in ('dir /ad /b /s ^| sort /r') do (
     )
 )
 
-echo Committing any new .gitkeep files...
+echo.
+echo Committing any pending changes...
 git add .
 git commit -m "Auto-add .gitkeep to empty folders"
 
 echo.
 echo Syncing local develop with remote...
-git checkout develop
-git pull origin develop
+git pull origin develop --no-edit
 
 echo.
 echo Switching to main and pulling latest...
 git checkout main
-git pull origin main
+git pull origin main --no-edit
 
 echo.
 echo Merging develop into main...
-git merge develop
+git merge develop --no-edit
 if errorlevel 1 (
     echo.
-    echo Merge conflict or error detected! Resolve conflicts manually, then
-    echo re-run this script, or commit and push manually once resolved.
+    echo Merge conflict or error detected! Resolve manually.
     pause
     exit /b
 )
@@ -58,13 +60,11 @@ echo Pushing main to GitHub...
 git push origin main
 
 echo.
-echo Switching back to develop and syncing with main...
+echo Switching back to develop and syncing...
 git checkout develop
-git merge main
+git merge main --no-edit
 git push origin develop
 
 echo.
-echo ====================================================
 echo Done! main and develop are now in sync.
-echo ====================================================
 pause
