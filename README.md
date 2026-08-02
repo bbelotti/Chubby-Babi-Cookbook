@@ -15,7 +15,7 @@ When compiled, the `main.tex` file will iteratively populate the notebook with t
 
 I added a couple of useful `.bat` scripts to quickly list all the recipes included in the folders and their languages, and to perform GIT push/pulls. These will only work on a Windows machine, but are not necessary for the LaTeX project to work.  
 
-The automations within this LaTeX document are made for Windows. Chances are that the universe will be destroyed if you try to compile this on a Mac.
+The automations within this LaTeX document are made for Windows. If you try to compile this on a Mac, chances are your computer will catch on fire and the universe will explode.
 
 ---
 
