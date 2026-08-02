@@ -22,6 +22,16 @@ echo Checking out develop branch first...
 git checkout develop
 
 echo.
+echo Checking for uncommitted changes...
+for /f "delims=" %%i in ('git status --porcelain') do (
+    echo.
+    echo ERROR: You have uncommitted changes in your repository!
+    echo Please commit or stash your work before running this script.
+    pause
+    exit /b
+)
+
+echo.
 echo Checking for empty folders...
 for /f "delims=" %%i in ('dir /ad /b /s ^| sort /r') do (
     dir /a /b "%%i" | findstr . >nul || (
@@ -32,18 +42,14 @@ for /f "delims=" %%i in ('dir /ad /b /s ^| sort /r') do (
 )
 
 echo.
-echo Committing any pending changes...
+echo Committing any new .gitkeep files...
 git add .
-git commit -m "Auto-add .gitkeep to empty folders"
-
-echo.
-echo Syncing local develop with remote...
-git pull origin develop --no-edit
-
-echo.
-echo Committing any pending changes or new .gitkeep files to develop...
-git add .
-git commit -m "Auto-add .gitkeep to empty folders"
+git diff --cached --quiet
+if errorlevel 1 (
+    git commit -m "Auto-add .gitkeep to empty folders"
+) else (
+    echo No empty folders to commit.
+)
 
 echo.
 echo Syncing local develop with remote...
