@@ -152,6 +152,21 @@
 {}{}
 {\titlerule*[0.5pc]{.}\thecontentspage}
 
+
+% ----------------------------------
+%  Turn a folder name like "mains_and_components" into "Mains & components"
+% ----------------------------------
+\newcommand{\CapitalizeFirst}[1]{%
+	\StrLeft{#1}{1}[\firstletterCB]%
+	\StrGobbleLeft{#1}{1}[\restlettersCB]%
+	\MakeUppercase{\firstletterCB}\restlettersCB%
+}
+
+\newcommand{\FormatCategoryTitle}[1]{%
+	\StrSubstitute{#1}{ and }{ \& }[\catnameB]%
+	\xdef\CategoryTitle{\catnameB}%
+}
+
 % ================================
 %  DOCUMENT
 % ================================
@@ -208,38 +223,22 @@
 \endgroup
 \clearpage
 
-% -----------------------------------
-%  RECIPES: load all the subfolders in the "recipes" folder. Update this if you add any folders (like "snacks") or change their names
-% -----------------------------------
 
-% ====================================
-\newpage \hfill \\
-\par\RaggedRight
-\setlength{\parskip}{0.6em plus 2pt minus 1pt}
-\setlength{\parindent}{0pt}
-\part*{\Large Mains \& components}
-\hfill \newpage
-
-\loadcategory{recipes/mains_and_components} % <-- update
-
-% ======================================
-\newpage \hfill \\
-\par\RaggedRight
-\setlength{\parskip}{0.6em plus 2pt minus 1pt}
-\setlength{\parindent}{0pt}
-\part*{\Large Sweets}
-\hfill \newpage
-
-\loadcategory{recipes/sweets} % <-- update
-
-% ====================================
-\newpage \hfill \\
-\par\RaggedRight
-\setlength{\parskip}{0.6em plus 2pt minus 1pt}
-\setlength{\parindent}{0pt}
-\part*{\Large Sauces \& Custards}
-\hfill \newpage
-
-\loadcategory{recipes/sauces_and_custards} % <-- update
+%% -----------------------------------
+%%  RECIPES: auto-generate a \part for every subfolder of ./recipes/
+%%  (alphabetical order), and load its recipe files.
+%%  Rename, add, or delete a folder there and this updates on the next compile.
+%% -----------------------------------
+\QueryFiles[type=d,sort=name]{recipes/*}{%
+	\StrBehind{#1}{recipes/}[\categoryfolder]%
+	\FormatCategoryTitle{\categoryfolder}%
+	\newpage \hfill \\
+	\par\RaggedRight
+	\setlength{\parskip}{0.6em plus 2pt minus 1pt}
+	\setlength{\parindent}{0pt}
+	\part*{\Large \CategoryTitle}
+	\hfill \newpage
+	\loadcategory{#1}
+}
 
 \end{document}
