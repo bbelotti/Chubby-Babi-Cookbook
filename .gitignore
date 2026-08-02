@@ -13,3 +13,8 @@
 altre_ricette/
 
 # *.pdf
+
+# Scripts
+push_changes_main.bat
+pull_changes_main.bat
+merge_dev_to_main.bat

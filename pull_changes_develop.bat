@@ -8,7 +8,7 @@ echo ====================================================
 echo.
 
 echo Fetching latest updates from GitHub...
-git pull origin main
+git pull origin develop
 
 echo.
 echo Sync complete! Your local files are up to date.
