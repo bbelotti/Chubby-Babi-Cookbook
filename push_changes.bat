@@ -37,5 +37,23 @@ git add .
 set /p msg="Enter commit message: "
 git commit -m "%msg%"
 git push origin %current%
+if errorlevel 1 goto permission_error
 echo Done!
 pause
+
+exit /b
+
+:permission_error
+echo.
+echo ======================================================================
+echo PUSH FAILED: You likely do not have write access to this repository.
+echo ======================================================================
+echo To submit your changes for review and merging, follow these steps:
+echo 1. Go to https://github.com/bbelotti/Chubby-Babi-Cookbook
+echo 2. Click "Fork" in the top right to create your own copy.
+echo 3. Clone your forked repository to your local machine.
+echo 4. Make your changes, commit, and push them to your fork.
+echo 5. Go to the original repository page and click "New pull request".
+echo ======================================================================
+pause
+exit /b

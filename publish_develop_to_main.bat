@@ -2,7 +2,7 @@
 cd /d "%~dp0"
 
 echo ====================================================
-echo     THE CHUBBY BABI - PUBLISH develop TO main 
+echo     THE CHUBBY BABI - PUBLISH develop TO main
 echo ====================================================
 echo.
 echo This will:
@@ -73,13 +73,31 @@ if errorlevel 1 (
 echo.
 echo Pushing main to GitHub...
 git push origin main
+if errorlevel 1 goto permission_error
 
 echo.
 echo Switching back to develop and syncing...
 git checkout develop
 git merge main --no-edit
 git push origin develop
+if errorlevel 1 goto permission_error
 
 echo.
 echo Done! main and develop are now in sync.
 pause
+exit /b
+
+:permission_error
+echo.
+echo ======================================================================
+echo PUSH FAILED: You likely do not have write access to this repository.
+echo ======================================================================
+echo To submit your changes for review and merging, follow these steps:
+echo 1. Go to https://github.com/bbelotti/Chubby-Babi-Cookbook
+echo 2. Click "Fork" in the top right to create your own copy.
+echo 3. Clone your forked repository to your local machine.
+echo 4. Make your changes, commit, and push them to your fork.
+echo 5. Go to the original repository page and click "New pull request".
+echo ======================================================================
+pause
+exit /b

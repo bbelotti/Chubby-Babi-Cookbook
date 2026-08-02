@@ -2,30 +2,42 @@
 cd /d "%~dp0"
 
 echo ====================================================
-echo          THE CHUBBY BABI - PULLING CHANGES          
+echo     THE CHUBBY BABI - PULL UPDATES
 echo ====================================================
 echo.
 
-echo Available branches:
-git branch -a
+REM 1. Identify the current branch
+for /f %%I in ('git rev-parse --abbrev-ref HEAD') do set current=%%I
+echo Currently on branch: %current%
 echo.
 
-for /f "delims=" %%b in ('git rev-parse --abbrev-ref HEAD') do set current=%%b
-echo You are currently on branch: %current%
-echo.
+REM 2. Automatically configure the official repo as "upstream" if missing
+git remote get-url upstream >nul 2>&1
+if errorlevel 1 (
+    echo Configuring 'upstream' remote...
+    git remote add upstream https://github.com/bbelotti/Chubby-Babi-Cookbook.git
+)
 
-set /p confirm="Pull into this branch? (y/n): "
-if /i not "%confirm%"=="y" (
-    echo Cancelled. Switch branch with "git checkout branch-name" and re-run.
+REM 3. Ask the user what kind of update they want
+echo Where do you want to pull updates from?
+echo [1] My own remote (origin) - Pull changes from my fork
+echo [2] The official repository (upstream) - Get Bruno's latest updates
+echo.
+set /p choice="Enter 1 or 2: "
+
+echo.
+if "%choice%"=="1" (
+    echo Pulling latest %current% from origin...
+    git pull origin %current%
+) else if "%choice%"=="2" (
+    echo Pulling latest %current% from the official upstream repository...
+    git pull upstream %current%
+) else (
+    echo Invalid choice. Aborting.
     pause
     exit /b
 )
 
 echo.
-echo Fetching latest updates from GitHub...
-git pull origin %current%
-
-echo.
-echo Sync complete! Your local files are up to date.
-echo.
+echo Done!
 pause
