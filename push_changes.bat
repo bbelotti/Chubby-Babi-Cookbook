@@ -1,24 +1,26 @@
 @echo off
 cd /d "%~dp0"
-
 echo ====================================================
 echo          THE CHUBBY BABI - PUSHING CHANGES          
 echo ====================================================
 echo.
-
 echo Available branches:
 git branch -a
 echo.
-
-for /f "delims=" %%b in ('git rev-parse --abbrev-ref HEAD') do set current=%%b
-echo You are currently on branch: %current%
+for /f "delims=" %%b in ('git rev-parse --abbrev-ref HEAD') do set original=%%b
+echo You are currently on branch: %original%
+echo.
+set /p target="Which branch do you want to push to? (main/develop): "
 echo.
 
-set /p confirm="Push to this branch? (y/n): "
-if /i not "%confirm%"=="y" (
-    echo Cancelled. Switch branch with "git checkout branch-name" and re-run.
-    pause
-    exit /b
+if /i not "%target%"=="%original%" (
+    git checkout %target%
+    if errorlevel 1 (
+        echo.
+        echo Could not switch to branch "%target%". Aborting.
+        pause
+        exit /b
+    )
 )
 
 echo.
@@ -31,17 +33,14 @@ for /f "delims=" %%i in ('dir /ad /b /s ^| sort /r') do (
         attrib +h "%%i\.gitkeep"
     )
 )
-
 echo.
 git add .
 set /p msg="Enter commit message: "
 git commit -m "%msg%"
-git push origin %current%
+git push origin %target%
 if errorlevel 1 goto permission_error
 echo Done!
-pause
-
-exit /b
+goto switch_back
 
 :permission_error
 echo.
@@ -55,5 +54,12 @@ echo 3. Clone your forked repository to your local machine.
 echo 4. Make your changes, commit, and push them to your fork.
 echo 5. Go to the original repository page and click "New pull request".
 echo ======================================================================
+
+:switch_back
+if /i not "%target%"=="%original%" (
+    echo.
+    echo Switching back to your original branch: %original%
+    git checkout %original%
+)
 pause
 exit /b
