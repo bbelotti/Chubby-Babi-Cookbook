@@ -46,7 +46,7 @@
 
  % ======================================================================
 %  LANGUAGE SWITCH --> Change to "OL" (Oiginal Language) or "EN" (English)
-\newcommand{\LangMode}{EN} % "OL" or "EN" 
+\newcommand{\LangMode}{OL} % "OL" or "EN" 
 % =======================================================================
 
 % \part{} is used for recipe CATEGORIES (Starters, Main Courses, ...)
@@ -174,6 +174,13 @@
 	\xdef\CategoryTitle{\catnameB}%
 }
 
+\newcommand\blfootnote[1]{%
+	\begingroup
+	\renewcommand\thefootnote{}\footnote{#1}%
+	\addtocounter{footnote}{-1}%
+	\endgroup
+}
+
 % ================================
 %  DOCUMENT
 % ================================
@@ -206,15 +213,15 @@
 	It is now 2026, and one could easily infer the contents of the physical Chubby Babi by looking solely at the collection of stains that have accumulated on its pages.
 	Thus, in an effort to preserve its legacy, and after multiple requests for a shareable format from folks who share excellent culinary taste, I have decided to digitize the Chubby Babi, now compiled into this practical \LaTeX\ document.
 	While I plan to add recipes to this cookbook indefinitely, I hope that you will enjoy its current repertoire. \linebreak
-	
-	\par
-	{\normalfont\raggedright
-		My current and future goals: Finish transferring recipes from the physical book; at the request of Bailee Zinzer, I aim to specify gluten-free alternatives for suitable recipes.
-	\par}
-	
 \end{minipage}
 
     \vspace*{3cm}
+    
+    \par
+    {\blfootnote{\normalfont\raggedright
+    		Current and future goals: Finish transferring recipes from the physical book; at the request of Bailee Zinzer, I aim to specify gluten-free alternatives for suitable recipes.}
+    	\par}
+    	
 \end{titlepage}
 
 % ------------------------------------
