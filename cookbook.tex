@@ -27,6 +27,7 @@
 \usepackage{changepage}
 \usepackage{multicol}
 	\raggedcolumns
+\usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage[stable,bottom]{footmisc}   % neat footnotes
 \usepackage{xfrac} % neat text fractions
@@ -41,12 +42,11 @@
 \usepackage{fontspec}
 \newfontfamily\japanesefont{NotoSansJP-Regular.ttf}[Path=./fonts/]
 
-
 \RaggedRight
 
  % ======================================================================
 %  LANGUAGE SWITCH --> Change to "OL" (Oiginal Language) or "EN" (English)
-\newcommand{\LangMode}{EN} % "OL" or "EN" 
+\newcommand{\LangMode}{OL} % "OL" or "EN" 
 % =======================================================================
 
 % \part{} is used for recipe CATEGORIES (Starters, Main Courses, ...)
@@ -73,7 +73,7 @@
     pdftitle    = {Il Chubby Babi},
     colorlinks  = true,
     linkcolor   = black,
-    urlcolor    = black,
+    urlcolor    = blue!70!cyan!50!black,
 }
 
 \newbool{showpagenumbers}
